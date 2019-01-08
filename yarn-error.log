@@ -1,0 +1,42 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add bable-preset-react@6.24.1 babel-preset-env@1.5.2
+
+PATH: 
+  /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/bin:/Users/melissatrevis/perl5/perlbrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/ActivePerl-5.22/bin
+
+Yarn version: 
+  1.10.1
+
+Node version: 
+  10.8.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/bable-preset-react: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:61073:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:120166:22)
+      at Request.emit (events.js:182:13)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:121138:10)
+      at Request.emit (events.js:182:13)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:121060:12)
+      at Object.onceWrapper (events.js:273:13)
+      at IncomingMessage.emit (events.js:187:15)
+      at endReadableNT (_stream_readable.js:1081:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "vacation-destination-app",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Lisa Trevis",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
