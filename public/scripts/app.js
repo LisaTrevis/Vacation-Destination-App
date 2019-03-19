@@ -26,16 +26,30 @@ var template = React.createElement(
 
 // Here is some dynamic JSX pulling from an object:
 
-// var content = {
-//     title: 'Vacation Destination App',
-//     subtitle: 'Let\'s go!'
-// };
-// var templateTwo = (
-//     <div>
-//         <h1>{content.title}</h1>
-//         <p>{content.subtitle}</p>
-//     </div>
-// );
+var app = {
+    title: 'Vacation Destination App',
+    subtitle: 'Let\'s go!',
+    options: ['Jamaica', 'Atlanta']
+};
+var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        app.title
+    ),
+    app.subtitle && React.createElement(
+        'p',
+        null,
+        app.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options.length > 0 ? 'Here are your options' : 'No Options'
+    )
+);
 
 var appRoot = document.getElementById('app');
 
@@ -157,7 +171,7 @@ var templateTest2 = React.createElement(
         null,
         user2.name ? user2.name : 'Anonymous'
     ),
-    user2.age >= 18 && React.createElement(
+    user2.age && user2.age >= 18 && React.createElement(
         'p',
         null,
         'Age: ',
@@ -166,4 +180,4 @@ var templateTest2 = React.createElement(
     getLocation(user2.location)
 );
 
-ReactDOM.render(templateTest2, appRoot);
+ReactDOM.render(templateTwo, appRoot);

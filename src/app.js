@@ -16,16 +16,18 @@ var template = (
 
 // Here is some dynamic JSX pulling from an object:
 
-// var content = {
-//     title: 'Vacation Destination App',
-//     subtitle: 'Let\'s go!'
-// };
-// var templateTwo = (
-//     <div>
-//         <h1>{content.title}</h1>
-//         <p>{content.subtitle}</p>
-//     </div>
-// );
+var app = {
+    title: 'Vacation Destination App',
+    subtitle: 'Let\'s go!',
+    options: ['Jamaica', 'Atlanta']
+};
+var templateTwo = (
+    <div>
+        <h1>{app.title}</h1>
+        {app.subtitle && <p>{app.subtitle}</p>}
+        <p>{app.options.length > 0 ? 'Here are your options' : 'No Options'}</p>
+    </div>
+);
 
 var appRoot = document.getElementById('app');
 
@@ -82,9 +84,9 @@ var templateTest1 = (
 var templateTest2 = (
     <div>
         <h1>{user2.name ? user2.name : 'Anonymous'}</h1>
-        {user2.age >= 18 && <p>Age: {user2.age}</p>}
+        {(user2.age && user2.age >= 18) && <p>Age: {user2.age}</p>}
         {getLocation(user2.location)}
     </div>
 );
 
-ReactDOM.render(templateTest2, appRoot);
+ReactDOM.render(templateTwo, appRoot);
