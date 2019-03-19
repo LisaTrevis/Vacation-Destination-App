@@ -50,7 +50,8 @@ var user = {
 
 var user2 = {
     name: 'Sheeps',
-    age: 22
+    age: 22,
+    location: 'MinneSNOWta'
 };
 
 function getLocation(location) {
@@ -156,7 +157,7 @@ var templateTest2 = React.createElement(
         null,
         user2.name ? user2.name : 'Anonymous'
     ),
-    React.createElement(
+    user2.age >= 18 && React.createElement(
         'p',
         null,
         'Age: ',
