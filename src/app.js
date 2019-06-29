@@ -7,7 +7,7 @@ console.log('app.js is running!');
 
 // NOTE: parens are NOT required, but they do make the code cleaner/easier to read.
 
-const template = (
+const templateTest = (
     <div>
         <h1>Vacation Destination App</h1>
         <p>Let's go!</p>
@@ -21,11 +21,15 @@ const app = {
     subtitle: 'Let\'s go!',
     options: ['Jamaica', 'Atlanta']
 };
-const templateTwo = (
+const templateMain = (
     <div>
         <h1>{app.title}</h1>
         {app.subtitle && <p>{app.subtitle}</p>}
-        <p>{app.options.length > 0 ? 'Here are your options' : 'No Options'}</p>
+        <p>{app.options.length > 0 ? 'Here are your options:' : 'No Options'}</p>
+        <ol>
+            <li>{app.options[0]}</li>
+            <li>{app.options[1]}</li>
+        </ol>
     </div>
 );
 
@@ -34,4 +38,4 @@ const appRoot = document.getElementById('app');
 // .render takes two args: 1st is the JSX I want to render, 2nd is the DOM element in which I want to render the JSX.
 // ReactDOM.render(template, appRoot);
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(templateMain, appRoot);

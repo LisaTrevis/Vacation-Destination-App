@@ -9,7 +9,7 @@ console.log('app.js is running!');
 
 // NOTE: parens are NOT required, but they do make the code cleaner/easier to read.
 
-var template = React.createElement(
+var templateTest = React.createElement(
     'div',
     null,
     React.createElement(
@@ -31,7 +31,7 @@ var app = {
     subtitle: 'Let\'s go!',
     options: ['Jamaica', 'Atlanta']
 };
-var templateTwo = React.createElement(
+var templateMain = React.createElement(
     'div',
     null,
     React.createElement(
@@ -47,7 +47,21 @@ var templateTwo = React.createElement(
     React.createElement(
         'p',
         null,
-        app.options.length > 0 ? 'Here are your options' : 'No Options'
+        app.options.length > 0 ? 'Here are your options:' : 'No Options'
+    ),
+    React.createElement(
+        'ol',
+        null,
+        React.createElement(
+            'li',
+            null,
+            app.options[0]
+        ),
+        React.createElement(
+            'li',
+            null,
+            app.options[1]
+        )
     )
 );
 
@@ -56,4 +70,4 @@ var appRoot = document.getElementById('app');
 // .render takes two args: 1st is the JSX I want to render, 2nd is the DOM element in which I want to render the JSX.
 // ReactDOM.render(template, appRoot);
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(templateMain, appRoot);
