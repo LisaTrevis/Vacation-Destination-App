@@ -19,16 +19,19 @@ const templateTest = (
 const app = {
     title: 'Vacation Destination App',
     subtitle: 'Let\'s go!',
-    options: ['Jamaica', 'Atlanta']
+    options: ['Jamaica', 'Atlanta', 'Ghana'],
+    printOptions() {
+        return this.options.map((option, index) => (<li key={index}>{option}</li>));
+    }
 };
-const templateMain = (
+
+const template = (
     <div>
         <h1>{app.title}</h1>
         {app.subtitle && <p>{app.subtitle}</p>}
         <p>{app.options.length > 0 ? 'Here are your options:' : 'No Options'}</p>
         <ol>
-            <li>{app.options[0]}</li>
-            <li>{app.options[1]}</li>
+            {app.printOptions()}
         </ol>
     </div>
 );
@@ -38,4 +41,4 @@ const appRoot = document.getElementById('app');
 // .render takes two args: 1st is the JSX I want to render, 2nd is the DOM element in which I want to render the JSX.
 // ReactDOM.render(template, appRoot);
 
-ReactDOM.render(templateMain, appRoot);
+ReactDOM.render(template, appRoot);

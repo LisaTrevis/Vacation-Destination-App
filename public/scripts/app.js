@@ -29,9 +29,19 @@ var templateTest = React.createElement(
 var app = {
     title: 'Vacation Destination App',
     subtitle: 'Let\'s go!',
-    options: ['Jamaica', 'Atlanta']
+    options: ['Jamaica', 'Atlanta', 'Ghana'],
+    printOptions: function printOptions() {
+        return this.options.map(function (option, index) {
+            return React.createElement(
+                'li',
+                { key: index },
+                option
+            );
+        });
+    }
 };
-var templateMain = React.createElement(
+
+var template = React.createElement(
     'div',
     null,
     React.createElement(
@@ -52,16 +62,7 @@ var templateMain = React.createElement(
     React.createElement(
         'ol',
         null,
-        React.createElement(
-            'li',
-            null,
-            app.options[0]
-        ),
-        React.createElement(
-            'li',
-            null,
-            app.options[1]
-        )
+        app.printOptions()
     )
 );
 
@@ -70,4 +71,4 @@ var appRoot = document.getElementById('app');
 // .render takes two args: 1st is the JSX I want to render, 2nd is the DOM element in which I want to render the JSX.
 // ReactDOM.render(template, appRoot);
 
-ReactDOM.render(templateMain, appRoot);
+ReactDOM.render(template, appRoot);
