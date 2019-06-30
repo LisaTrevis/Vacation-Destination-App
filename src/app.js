@@ -36,9 +36,30 @@ const template = (
     </div>
 );
 
+let count = 0;
+
+const addOne = () => {
+    console.log('plus one')
+};
+const minusOne = () => {
+    console.log('minus one')
+};
+const reset = () => {
+    console.log('reset')
+};
+
+const templateTwo = (
+    <div>
+        <h1>Count: {count}</h1>
+        <button onClick={addOne}>+1</button>
+        <button onClick={minusOne}>-1</button>
+        <button onClick={reset}>Reset</button>
+    </div>
+)
+
 const appRoot = document.getElementById('app');
 
 // .render takes two args: 1st is the JSX I want to render, 2nd is the DOM element in which I want to render the JSX.
 // ReactDOM.render(template, appRoot);
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
