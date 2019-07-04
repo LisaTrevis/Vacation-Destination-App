@@ -1,10 +1,14 @@
 class VacationDestinationApp extends React.Component {
     render() {
+        const title = 'Vacation Destination';
+        const subTitle = 'Let the Universe decide';
+        const options = ['One', 'Two', 'Four'];
+        
         return (
             <div>
-                <Header />
+                <Header title={title} subTitle={subTitle} />
                 <Action />
-                <Options />
+                <Options options={options} />
                 <AddOption />
             </div>
         );
@@ -15,8 +19,8 @@ class Header extends React.Component {
     render() {
         return (
         <div>    
-            <h1>Vacation Destination</h1>
-            <h2>Let the Universe decide</h2>
+            <h1>{this.props.title}</h1>
+            <h2>{this.props.subTitle}</h2>
         </div>
         );
     }
@@ -36,6 +40,9 @@ class Options extends React.Component {
     render() {
         return (
             <div>
+                {
+                    this.props.options.map((option) => <Option key={option} optionText={option} />)
+                }
                 <Option />
             </div>
         );
@@ -46,7 +53,7 @@ class Option extends React.Component {
     render() {
         return (
             <div>
-                Options go here
+                {this.props.optionText}
             </div>
         );
     }
