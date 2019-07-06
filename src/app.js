@@ -1,14 +1,14 @@
 class VacationDestinationApp extends React.Component {
     render() {
-        const title = 'Vacation Destination';
-        const subTitle = 'Let the Universe decide';
-        const options = ['One', 'Two', 'Four'];
+        const title2 = 'Vacation Destination';
+        const subTitle2 = 'Let the Universe decide';
+        const options2 = ['One', 'Two', 'Four'];
         
         return (
             <div>
-                <Header title={title} subTitle={subTitle} />
+                <Header title={title2} subTitle={subTitle2} />
                 <Action />
-                <Options options={options} />
+                <Options options={options2} />
                 <AddOption />
             </div>
         );
@@ -41,8 +41,12 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleRemoveAll = this.handleRemoveAll.bind(this);
+    }
     handleRemoveAll() {
-        alert('Done');
+        console.log(this.props.options);
     }
     
     render() {

@@ -20,16 +20,16 @@ var VacationDestinationApp = function (_React$Component) {
     _createClass(VacationDestinationApp, [{
         key: 'render',
         value: function render() {
-            var title = 'Vacation Destination';
-            var subTitle = 'Let the Universe decide';
-            var options = ['One', 'Two', 'Four'];
+            var title2 = 'Vacation Destination';
+            var subTitle2 = 'Let the Universe decide';
+            var options2 = ['One', 'Two', 'Four'];
 
             return React.createElement(
                 'div',
                 null,
-                React.createElement(Header, { title: title, subTitle: subTitle }),
+                React.createElement(Header, { title: title2, subTitle: subTitle2 }),
                 React.createElement(Action, null),
-                React.createElement(Options, { options: options }),
+                React.createElement(Options, { options: options2 }),
                 React.createElement(AddOption, null)
             );
         }
@@ -105,16 +105,19 @@ var Action = function (_React$Component3) {
 var Options = function (_React$Component4) {
     _inherits(Options, _React$Component4);
 
-    function Options() {
+    function Options(props) {
         _classCallCheck(this, Options);
 
-        return _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).apply(this, arguments));
+        var _this4 = _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).call(this, props));
+
+        _this4.handleRemoveAll = _this4.handleRemoveAll.bind(_this4);
+        return _this4;
     }
 
     _createClass(Options, [{
         key: 'handleRemoveAll',
         value: function handleRemoveAll() {
-            alert('Done');
+            console.log(this.props.options);
         }
     }, {
         key: 'render',
