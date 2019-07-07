@@ -1,14 +1,14 @@
 class VacationDestinationApp extends React.Component {
     render() {
-        const title2 = 'Vacation Destination';
-        const subTitle2 = 'Let the Universe decide';
-        const options2 = ['One', 'Two', 'Four'];
+        const titleStr = 'Vacation Destination';
+        const subTitleStr = 'Let the Universe decide';
+        const optionsArray = ['One', 'Two', 'Four'];
         
         return (
             <div>
-                <Header title={title2} subTitle={subTitle2} />
+                <Header title={titleStr} subTitle={subTitleStr} />
                 <Action />
-                <Options options={options2} />
+                <Options options={optionsArray} />
                 <AddOption />
             </div>
         );
