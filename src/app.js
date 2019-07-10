@@ -1,14 +1,31 @@
 class VacationDestinationApp extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
+        this.state = {
+            optionsArray: ['One', 'Two', 'Seven']
+        };
+    }
+    
+    handleDeleteOptions() {
+        this.setState(() => {
+            return {
+                optionsArray: []
+            };
+        });
+    }
     render() {
         const titleStr = 'Vacation Destination';
         const subTitleStr = 'Let the Universe decide';
-        const optionsArray = ['One', 'Two', 'Four'];
         
         return (
             <div>
                 <Header title={titleStr} subTitle={subTitleStr} />
-                <Action />
-                <Options options={optionsArray} />
+                <Action hasOptions={this.state.optionsArray.length > 0} />
+                <Options 
+                    options={this.state.optionsArray}
+                    handleDeleteOptions={this.handleDeleteOptions}    
+                />
                 <AddOption />
             </div>
         );
@@ -34,25 +51,22 @@ class Action extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.handlePick}>Where should I go?</button>
+                <button
+                    onClick={this.handlePick}
+                    disabled={!this.props.hasOptions}
+                >
+                    Where should I go?
+                </button>
             </div>
         );
     }
 }
 
 class Options extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleRemoveAll = this.handleRemoveAll.bind(this);
-    }
-    handleRemoveAll() {
-        console.log(this.props.options);
-    }
-    
     render() {
         return (
             <div>
-                <button onClick={this.handleRemoveAll}>Remove All</button>
+                <button onClick={this.props.handleDeleteOptions}>Remove All</button>
                 {
                     this.props.options.map((option) => <Option key={option} optionText={option} />)
                 }
