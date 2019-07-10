@@ -17,6 +17,7 @@ var VacationDestinationApp = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (VacationDestinationApp.__proto__ || Object.getPrototypeOf(VacationDestinationApp)).call(this, props));
 
         _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
+        _this.handlePick = _this.handlePick.bind(_this);
         _this.state = {
             optionsArray: ['One', 'Two', 'Seven']
         };
@@ -33,6 +34,13 @@ var VacationDestinationApp = function (_React$Component) {
             });
         }
     }, {
+        key: 'handlePick',
+        value: function handlePick() {
+            var randomNum = Math.floor(Math.random() * this.state.optionsArray.length);
+            var option = this.state.optionsArray[randomNum];
+            alert(option);
+        }
+    }, {
         key: 'render',
         value: function render() {
             var titleStr = 'Vacation Destination';
@@ -42,7 +50,10 @@ var VacationDestinationApp = function (_React$Component) {
                 'div',
                 null,
                 React.createElement(Header, { title: titleStr, subTitle: subTitleStr }),
-                React.createElement(Action, { hasOptions: this.state.optionsArray.length > 0 }),
+                React.createElement(Action, {
+                    hasOptions: this.state.optionsArray.length > 0,
+                    handlePick: this.handlePick
+                }),
                 React.createElement(Options, {
                     options: this.state.optionsArray,
                     handleDeleteOptions: this.handleDeleteOptions
@@ -97,11 +108,6 @@ var Action = function (_React$Component3) {
     }
 
     _createClass(Action, [{
-        key: 'handlePick',
-        value: function handlePick() {
-            alert('handlePick');
-        }
-    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
@@ -110,7 +116,7 @@ var Action = function (_React$Component3) {
                 React.createElement(
                     'button',
                     {
-                        onClick: this.handlePick,
+                        onClick: this.props.handlePick,
                         disabled: !this.props.hasOptions
                     },
                     'Where should I go?'
