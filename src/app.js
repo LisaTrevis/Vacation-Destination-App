@@ -3,8 +3,9 @@ class VacationDestinationApp extends React.Component {
         super(props);
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
+        this.handleAddOption = this.handleAddOption.bind(this);
         this.state = {
-            optionsArray: ['One', 'Two', 'Seven']
+            optionsArray: []
         };
     }
     handleDeleteOptions() {
@@ -18,6 +19,13 @@ class VacationDestinationApp extends React.Component {
         const randomNum = Math.floor(Math.random() * this.state.optionsArray.length);
         const option = this.state.optionsArray[randomNum];
         alert(option);
+    }
+    handleAddOption(option) {
+        this.setState((prevState) => {
+            return {
+                optionsArray: prevState.optionsArray.concat([option])
+            };
+        });
     }
     render() {
         const titleStr = 'Vacation Destination';
@@ -34,7 +42,9 @@ class VacationDestinationApp extends React.Component {
                     options={this.state.optionsArray}
                     handleDeleteOptions={this.handleDeleteOptions}    
                 />
-                <AddOption />
+                <AddOption 
+                    handleAddOption={this.handleAddOption}
+                />
             </div>
         );
     }
@@ -91,13 +101,17 @@ class Option extends React.Component {
 }
     
 class AddOption extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleAddOption = this.handleAddOption.bind(this);
+    }
     handleAddOption(e) {
         e.preventDefault();
 
         const option = e.target.elements.option.value.trim();
         
         if(option) {
-            alert(option);
+            this.props.handleAddOption(option);
         }
     };
 
