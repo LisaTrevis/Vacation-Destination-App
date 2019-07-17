@@ -5,7 +5,7 @@ class VacationDestinationApp extends React.Component {
         this.handlePick = this.handlePick.bind(this);
         this.handleAddOption = this.handleAddOption.bind(this);
         this.state = {
-            optionsArray: []
+            optionsArray: props.optionsArray
         };
     }
     handleDeleteOptions() {
@@ -34,12 +34,11 @@ class VacationDestinationApp extends React.Component {
         });
     }
     render() {
-        const titleStr = 'Vacation Destination';
         const subTitleStr = 'Let the Universe decide';
         
         return (
             <div>
-                <Header title={titleStr} subTitle={subTitleStr} />
+                <Header subTitle={subTitleStr} />
                 <Action 
                     hasOptions={this.state.optionsArray.length > 0}
                     handlePick={this.handlePick}
@@ -56,14 +55,22 @@ class VacationDestinationApp extends React.Component {
     }
 }
 
+VacationDestinationApp.defaultProps = {
+    optionsArray: []
+};
+
 const Header = (props) => {
     return (
         <div>    
             <h1>{props.title}</h1>
-            <h2>{props.subTitle}</h2>
+            {props.subTitle && <h2>{props.subTitle}</h2>}
         </div>
     )
 }
+
+Header.defaultProps = {
+    title: 'Vacation Destination'
+};
 
 // class Header extends React.Component {
 //     render() {
@@ -168,6 +175,7 @@ class AddOption extends React.Component {
                 // error: error is the same thing as the shorthand es6 above.
             }
         });
+
     };
 
     render() {
