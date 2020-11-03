@@ -2,6 +2,7 @@
   "name": "vacation-destination-app",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": "git@github.com:LisaTrevis/Vacation-Destination-App.git",
   "author": "Lisa Trevis",
   "license": "MIT",
   "dependencies": {
