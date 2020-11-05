@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('app.js is running now!');
-
 var app = {
     title: 'Vacation Desination App',
     subTitle: 'Make those 2021 travel plans now!',
@@ -69,6 +67,11 @@ var render = function render() {
             })
         ),
         React.createElement(
+            'button',
+            { onClick: onRemoveAll },
+            'Remove All'
+        ),
+        React.createElement(
             'form',
             { onSubmit: onFormSubmit },
             React.createElement('input', { type: 'text', name: 'option' }),
@@ -77,11 +80,6 @@ var render = function render() {
                 null,
                 'Add Option'
             )
-        ),
-        React.createElement(
-            'button',
-            { onClick: onRemoveAll },
-            'Remove All'
         )
     );
     ReactDOM.render(template, appRoot);

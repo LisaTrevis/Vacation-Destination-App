@@ -1,5 +1,3 @@
-console.log('app.js is running now!')
-
 const app = {
     title: 'Vacation Desination App',
     subTitle: 'Make those 2021 travel plans now!',
@@ -43,11 +41,11 @@ const render = () => {
                     return <li key={option}>{option}</li>
                 })}
             </ol>
+            <button onClick={onRemoveAll}>Remove All</button>
             <form onSubmit={onFormSubmit}>
                 <input type="text" name="option"/>
                 <button>Add Option</button>
             </form>
-            <button onClick={onRemoveAll}>Remove All</button>
         </div>
     )
     ReactDOM.render(template, appRoot)
